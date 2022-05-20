@@ -66,6 +66,38 @@ project "GLFW"
 			"_GLFW_X11"
 		}
 
+	filter "system:macosx"
+		files {
+			"src/cocoa_time.h",
+			"src/cocoa_time.c",
+			"src/posix_thread.h",
+			"src/posix_module.c",
+			"src/posix_thread.c",
+
+			"src/cocoa_platform.h",
+			"src/cocoa_joystick.h",
+			"src/cocoa_window.m",
+			"src/cocoa_init.m",
+			"src/cocoa_joystick.m",
+			"src/cocoa_monitor.m",
+			"src/nsgl_context.m",
+			"src/egl_context.c",
+			"src/osmesa_context.c"
+		}
+
+        systemversion "11.6.5"
+
+		links {
+			"Cocoa.framework",
+			"IOKit.framework",
+			"CoreFoundation.framework"
+		}
+
+		defines
+		{
+			"_GLFW_COCOA"
+		}
+
 	filter "system:windows"
 		systemversion "latest"
 
